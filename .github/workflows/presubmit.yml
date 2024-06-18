@@ -238,7 +238,7 @@ jobs:
     needs: format
     strategy:
       matrix:
-        VER: [v141, v142, v143, clangcl]
+        VER: [v142, v143, clangcl]
         GEN: [Visual Studio 17 2022, Ninja Multi-Config]
         BIN: [x64]
         exclude:
@@ -310,7 +310,6 @@ jobs:
       shell: pwsh
       run: |
         $VER = switch ('${{matrix.VER}}') { `
-          'v141' {'14.1'} `
           'v142' {'14.2'} `
           'v143' {'14.4'} }
         Import-Module "${env:VS_ROOT}\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
@@ -354,7 +353,6 @@ jobs:
       # error C2220: warning treated as error - no 'object' file generated
       run: |
         $VER = switch ('${{matrix.VER}}') { `
-          'v141' {'14.1'} `
           'v142' {'14.2'} `
           'v143' {'14.4'} }
         Import-Module "${env:VS_ROOT}\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
@@ -389,7 +387,6 @@ jobs:
       shell: pwsh
       run: |
         $VER = switch ('${{matrix.VER}}') { `
-          'v141' {'14.1'} `
           'v142' {'14.2'} `
           'v143' {'14.4'} }
         Import-Module "${env:VS_ROOT}\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
@@ -450,7 +447,6 @@ jobs:
       shell: pwsh
       run: |
         $VER = switch ('${{matrix.VER}}') { `
-          'v141' {'14.1'} `
           'v142' {'14.2'} `
           'v143' {'14.4'} }
         Import-Module "${env:VS_ROOT}\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
@@ -505,7 +501,6 @@ jobs:
       shell: pwsh
       run: |
         $VER = switch ('${{matrix.VER}}') { `
-          'v141' {'14.1'} `
           'v142' {'14.2'} `
           'v143' {'14.4'} }
         & cmake `
