@@ -527,20 +527,20 @@ jobs:
     strategy:
       matrix:
         C_COMPILER:
-        - /usr/bin/gcc # Actually Clang 14
-        - /usr/local/bin/gcc-11
-        - /usr/local/bin/gcc-13
+          - gcc-11
+          - gcc-13
+          - clang-14
         GEN:
         - Xcode
         - Ninja Multi-Config
         STD: [99, 11, 17]
         exclude:
-        - C_COMPILER: /usr/bin/gcc
+        - C_COMPILER: gcc-11
+          GEN: Xcode
+        - C_COMPILER: gcc-13
+          GEN: Xcode
+        - C_COMPILER: clang-14
           GEN: Ninja Multi-Config
-        - C_COMPILER: /usr/local/bin/gcc-11
-          GEN: Xcode
-        - C_COMPILER: /usr/local/bin/gcc-13
-          GEN: Xcode
     env:
       INSTALL_LIBDIR: lib
       CFLAGS: -Wall -Wextra -pedantic -Werror
